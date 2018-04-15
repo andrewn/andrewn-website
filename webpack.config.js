@@ -1,7 +1,12 @@
-const path = require("path");
+const fs = require("fs");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const StaticSiteGeneratorPlugin = require("static-site-generator-webpack-plugin");
+const WebpackOnBuildPlugin = require("on-build-webpack");
+
+const config = require("./config");
+
+const renames = require("./lib/routes").renames;
 
 // Probably not the right place for this
 process.on("unhandledRejection", error => {
@@ -20,7 +25,7 @@ module.exports = async () => {
 
     output: {
       filename: "index.js",
-      path: path.join(__dirname, "dist"),
+      path: config.outputRoot,
       /* IMPORTANT!
      * You must compile to UMD or CommonJS
      * so it can be required in a Node context: */
@@ -49,7 +54,11 @@ module.exports = async () => {
         paths: routes,
         locals: {}
       }),
-      new CopyWebpackPlugin([{ from: "static" }])
+      new CopyWebpackPlugin([{ from: "static" }]),
+      new WebpackOnBuildPlugin(async stats => {
+        console.log("done");
+        (await renames()).map(({ from, to }) => fs.renameSync(from, to));
+      })
     ]
   };
 };

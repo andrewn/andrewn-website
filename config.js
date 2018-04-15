@@ -3,6 +3,7 @@
 import path from "path";
 
 export const root = __dirname;
+export const outputRoot = path.join(root, "dist");
 export const contentRoot = path.join(root, "content");
 export const staticRoot = path.join(root, "static");
 export const selectedProjectsPath = path.join(contentRoot, "selected.json");
