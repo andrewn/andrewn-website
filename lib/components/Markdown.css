@@ -1,0 +1,138 @@
+/* Intro */
+.intro {
+  margin-bottom: 2rem;
+}
+
+.intro > :global(p) {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1.3;
+
+  text-indent: -0.35em;
+}
+
+@media (min-width: 450px) {
+  .intro > :global(p) {
+    width: 75%;
+  }
+}
+
+.intro > :global(p:before) {
+  content: open-quote;
+}
+
+.intro > :global(p:after) {
+  content: close-quote;
+}
+
+/* Clear */
+.clear {
+  clear: both;
+}
+
+/* Markdown */
+/*
+.markdownContent :global(h2) {
+  margin-bottom: 0;
+}
+
+.markdownContent :global(h1) + :global(p) {
+  margin-top: 0.25rem;
+}
+
+.markdownContent :global(h2) + :global(p) {
+  margin-top: 0.25rem;
+}
+
+.markdownContent :global(h3) + :global(p) {
+  margin-top: 0.15rem;
+}
+
+.markdownContent :global(ol),
+.markdownContent :global(ul) {
+  margin-bottom: 0rem;
+}
+
+.markdownContent :global(ol) + :global(ul),
+.markdownContent :global(ul) + :global(ul),
+.markdownContent :global(ul) + :global(ol),
+.markdownContent :global(ul) + :global(ol) {
+  margin-top: 0rem;
+}
+*/
+
+.markdownContent :global(p) {
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.markdownContent :global(ul) {
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+  padding-left: 0;
+}
+
+.markdownContent :global(li) {
+  position: relative;
+  left: 16px;
+}
+
+.markdownContent :global(code) {
+  display: inline-block;
+  background-color: #eee;
+  padding: 0.25rem 0.4rem;
+  border-radius: 3px;
+}
+
+.markdownContent :global(iframe) {
+  border: none;
+}
+
+.markdownContent :global(.video) {
+  border: 1px solid #eee;
+}
+
+.markdownContent :global(figure),
+.markdownContent :global(.video) {
+  margin-top: 1rem;
+}
+
+@media (min-width: 500px) {
+  .markdownContent :global(figure),
+  .markdownContent :global(.video) {
+    width: auto;
+    max-width: 50%;
+  }
+
+  .markdownContent :global(figure.is-aligned-right),
+  .markdownContent :global(.video.is-aligned-right) {
+    float: right;
+
+    margin-right: -16px;
+    margin-left: 32px;
+  }
+
+  .markdownContent :global(figure.is-aligned-left),
+  .markdownContent :global(.video.is-aligned-left) {
+    float: left;
+
+    margin-right: 32px;
+    margin-left: -16px;
+  }
+
+  .markdownContent :global(figure.is-aligned-right),
+  .markdownContent :global(.video.is-aligned-right) {
+    max-width: 50%;
+    float: right;
+
+    margin-right: -16px;
+    margin-left: 32px;
+  }
+}
+
+@media (min-width: 960px) {
+  .markdownContent :global(p),
+  .markdownContent :global(ul) {
+    width: 75%;
+  }
+}

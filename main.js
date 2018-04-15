@@ -3,24 +3,29 @@ const { createElement } = require("react");
 const { Helmet } = require("react-helmet");
 import { matchRoutes, renderRoutes } from "react-router-config";
 
-const work = require("./lib/models/work");
-
-import Root from "./lib/components/Root";
 import { routing } from "./lib/routes";
+import Root from "./lib/components/Root";
+import { all as allImages } from "./lib/models/images";
+
+const fetchInitialProps = async matchingRoutes => {
+  if (matchingRoutes[0].route.component.getInitialProps) {
+    return await matchingRoutes[0].route.component.getInitialProps();
+  }
+
+  return null;
+};
 
 module.exports = async function render({ path }) {
   const routes = routing();
 
+  const imageStore = allImages();
+
   const matching = matchRoutes(routes, path);
 
-  let data = null;
-
-  if (matching[0].route.data) {
-    data = await matching[0].route.data();
-  }
+  const initialProps = await fetchInitialProps(matching);
 
   const body = renderToStaticMarkup(
-    createElement(Root, { path, routes, data })
+    createElement(Root, { path, routes, imageStore, ...initialProps })
   );
   const helmet = Helmet.renderStatic();
 
@@ -31,11 +36,14 @@ module.exports = async function render({ path }) {
             ${helmet.title.toString()}
             ${helmet.meta.toString()}
             ${helmet.link.toString()}
+            ${helmet.style.toString()}
         </head>
         <body ${helmet.bodyAttributes.toString()}>
             <div id="content">
                ${body}
             </div>
+            ${helmet.noscript.toString()}
+            ${helmet.script.toString()}
         </body>
     </html>
 `;

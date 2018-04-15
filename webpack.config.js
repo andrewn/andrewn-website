@@ -4,6 +4,12 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const routes = require("./lib/routes").paths();
 
+// Probably not the right place for this
+process.on("unhandledRejection", error => {
+  console.log("unhandledRejection", error);
+  process.exit(1);
+});
+
 module.exports = {
   entry: "./main.js",
 
@@ -23,7 +29,7 @@ module.exports = {
     rules: [
       { test: /\.js$/, use: "babel-loader" },
       {
-        test: /\.module.css$/,
+        test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: "style-loader",
           use: [
@@ -39,11 +45,7 @@ module.exports = {
     new ExtractTextPlugin("styles.css"),
     new StaticSiteGeneratorPlugin({
       paths: routes,
-      locals: {
-        // Properties here are merged into `locals`
-        // passed to the exported render function
-        greet: "Hello"
-      }
+      locals: {}
     })
   ]
 };

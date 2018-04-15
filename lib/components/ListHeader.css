@@ -1,0 +1,20 @@
+/* ListHeader */
+.header {
+  display: flex;
+  align-items: flex-end;
+  margin: 1rem 0;
+}
+
+.headerHeading {
+  margin: 0;
+}
+
+.headerLink {
+  margin-left: auto;
+}
+
+.headerLink:after {
+  display: inline-block;
+  content: ' →';
+  padding-left: 0.5rem;
+}
