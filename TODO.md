@@ -2,12 +2,17 @@
 
 * [x] Load content from folder (list blog posts)
 * [x] Render markdown
-* [ ] Routes
-* [ ] Embed random content like Gists/Codepens etc
+* [x] Routes
 * [x] Extract CSS to files
 * [x] PostCSS
-* [ ] Responsive images
-* [ ] Generate Atom feed and other non-HTML pages?
+* [x] Responsive images
+* [x] Fix Markdown not rendering Figure, Video and Intro
+* [x] Fix links not being links
+* [ ] Embed random content like Gists/Codepens etc
+* [ ] Generate Atom feed
+* [ ] Generate Site Map
+* [ ] Fix all errors/warnings in output
+* [ ] Fix Flow
 
 ### Future
 
