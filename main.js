@@ -17,12 +17,10 @@ const fetchInitialProps = async matchingRoutes => {
 
 module.exports = async function render({ path }) {
   const routes = routing();
-
-  const imageStore = allImages();
-
   const matching = matchRoutes(routes, path);
 
   const initialProps = await fetchInitialProps(matching);
+  const imageStore = await allImages();
 
   const body = renderToStaticMarkup(
     createElement(Root, { path, routes, imageStore, ...initialProps })
