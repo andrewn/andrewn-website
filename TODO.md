@@ -3,8 +3,8 @@
 * [ ] Load content from folder
 * [ ] Render markdown
 * [ ] Embed random content like Gists/Codepens etc
-* [ ] Extract CSS to files
-* [ ] PostCSS
+* [x] Extract CSS to files
+* [x] PostCSS
 * [ ] Responsive images
 
 ### Future

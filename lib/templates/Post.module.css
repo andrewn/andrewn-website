@@ -1,0 +1,10 @@
+.container {
+  border: 10px solid blue;
+  transform: rotateX(45deg);
+}
+
+@media (min-resolution: 2dppx) {
+  .container {
+    background: red;
+  }
+}
