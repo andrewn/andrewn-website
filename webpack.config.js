@@ -2,8 +2,13 @@ const path = require("path");
 const StaticSiteGeneratorPlugin = require("static-site-generator-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
+const routes = require("./lib/routes").paths();
+
 module.exports = {
   entry: "./main.js",
+
+  target: "node",
+  node: { __dirname: true },
 
   output: {
     filename: "index.js",
@@ -33,7 +38,7 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin("styles.css"),
     new StaticSiteGeneratorPlugin({
-      paths: ["/", "/hello/", "/world/"],
+      paths: routes,
       locals: {
         // Properties here are merged into `locals`
         // passed to the exported render function

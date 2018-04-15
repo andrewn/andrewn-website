@@ -1,11 +1,27 @@
 const { renderToStaticMarkup } = require("react-dom/server");
 const { createElement } = require("react");
 const { Helmet } = require("react-helmet");
+import { matchRoutes, renderRoutes } from "react-router-config";
 
-const Root = require("./lib/components/Root").default;
+const work = require("./lib/models/work");
 
-module.exports = function render(locals) {
-  const body = renderToStaticMarkup(createElement(Root, { path: locals.path }));
+import Root from "./lib/components/Root";
+import { routing } from "./lib/routes";
+
+module.exports = async function render({ path }) {
+  const routes = routing();
+
+  const matching = matchRoutes(routes, path);
+
+  let data = null;
+
+  if (matching[0].route.data) {
+    data = await matching[0].route.data();
+  }
+
+  const body = renderToStaticMarkup(
+    createElement(Root, { path, routes, data })
+  );
   const helmet = Helmet.renderStatic();
 
   const html = `

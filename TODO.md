@@ -6,6 +6,7 @@
 * [x] Extract CSS to files
 * [x] PostCSS
 * [ ] Responsive images
+* [ ] Generate Atom feed and other non-HTML pages?
 
 ### Future
 
