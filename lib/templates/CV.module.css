@@ -1,0 +1,214 @@
+:root {
+  --cv-indent-margin: 10rem;
+  --cv-indent-width: 9.7rem;
+}
+
+/* Print page layout styles */
+@page :first {
+  margin-top: 0;
+}
+
+@page :left {
+  margin-top: 1cm;
+  margin-bottom: 1cm;
+}
+
+@page :right {
+  margin-top: 1cm;
+  margin-bottom: 1cm;
+}
+
+@media print {
+  .cv {
+    font-size: 11pt;
+    padding: 0;
+  }
+}
+
+[data-not-printable] {
+  display: none;
+}
+
+.cv {
+  line-height: 1.3;
+}
+
+.cv :global h2 {
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.cv :global h3,
+.cv :global h4 {
+  font-size: 1em;
+  font-weight: bold;
+  letter-spacing: inherit;
+}
+
+.cv :global h3 {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.cv :global h2 + .cv :global h3 {
+  margin-top: 1rem;
+}
+
+.cv :global p {
+  margin-top: 0;
+}
+
+.cv :global p,
+.cv :global ul {
+  width: 90%;
+}
+
+/* CV header and info */
+.cv :global .header {
+  display: flex;
+  justify-content: space-between;
+
+  margin: 1rem 0 1.5rem 0;
+}
+
+/* Personal details */
+.cv :global .details {
+  line-height: 1.3;
+  white-space: nowrap;
+  margin-right: 0.3rem;
+}
+
+.cv :global .details p {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.cv :global .line {
+  display: block;
+}
+
+/* Summary */
+.cv :global .summary {
+  font-weight: normal;
+  font-size: 1.3em;
+  line-height: 1.5;
+  width: 51%;
+
+  order: -1;
+}
+
+@media (max-width: 550px) {
+  .cv :global .header {
+    flex-wrap: wrap;
+  }
+
+  .cv :global .summary,
+  .cv :global .details {
+    width: auto;
+  }
+}
+
+/* 2 column lists */
+.cv :global .list-container {
+  display: flex;
+}
+
+.cv :global .list-container > * {
+  width: 50%;
+}
+
+.cv :global .list-container li {
+  left: 0;
+}
+
+@media (max-width: 550px) {
+  .cv :global .list-container {
+    display: block;
+  }
+
+  .cv :global .list-container > * {
+    width: auto;
+  }
+}
+
+/* General section indents */
+.cv :global section.is-indented {
+  margin-bottom: 2.5rem;
+  margin-left: var(--cv-indent-margin);
+}
+
+.cv :global section.is-indented h2 {
+  margin-left: calc(0 - var(--cv-indent-margin));
+}
+
+.cv :global section.is-indented h3 .date {
+  display: inline-block;
+  width: var(--cv-indent-width);
+  margin-left: calc(0 - var(--cv-indent-margin));
+}
+.cv :global section.is-indented h3 .hide {
+  display: none;
+}
+
+.cv :global .role-summary {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+/* Role spacing */
+.cv :global .role {
+  display: inline-block;
+}
+
+/* Organisation on newline */
+.cv :global .org {
+  display: block;
+}
+
+.cv :global .role,
+.cv :global .org {
+  padding-bottom: 0.4rem;
+}
+
+.cv :global .org,
+.cv :global .project {
+  color: #666;
+}
+
+.cv :global ul li {
+  margin-left: 2rem;
+  list-style-position: outside;
+  margin-bottom: 0.5rem;
+}
+
+.cv :global .project {
+  font-weight: bold;
+}
+
+.cv :global .projects-label {
+  margin-left: calc(0 - var(--cv-indent-margin));
+  text-align: right;
+  width: calc(var(--cv-indent-width) - 1rem);
+}
+
+.cv :global .projects-label + * {
+  margin-top: -2.2rem;
+}
+
+.cv :global .projects-label + * > li {
+  list-style: none;
+  margin-left: 0;
+  margin-bottom: 1rem;
+  left: 0;
+}
+
+.cv :global .with-bullets .projects-label + * > li {
+  list-style: inherit;
+  margin-bottom: 0.5rem;
+  list-style-position: outside;
+  margin-left: 1.5rem;
+}
