@@ -8,15 +8,18 @@ import Root from "./lib/components/Root";
 import { all as allImages } from "./lib/models/images";
 
 const fetchInitialProps = async matchingRoutes => {
-  if (matchingRoutes[0].route.component.getInitialProps) {
-    return await matchingRoutes[0].route.component.getInitialProps();
+  const { component, context } = matchingRoutes[0].route;
+
+  if (typeof component.getInitialProps === "function") {
+    return await component.getInitialProps({ context });
   }
 
   return null;
 };
 
 module.exports = async function render({ path }) {
-  const routes = routing();
+  const routes = await routing();
+
   const matching = matchRoutes(routes, path);
 
   const initialProps = await fetchInitialProps(matching);

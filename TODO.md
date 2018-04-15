@@ -1,7 +1,8 @@
 ## Figure out
 
 * [x] Load content from folder (list blog posts)
-* [ ] Render markdown
+* [x] Render markdown
+* [ ] Routes
 * [ ] Embed random content like Gists/Codepens etc
 * [x] Extract CSS to files
 * [x] PostCSS
