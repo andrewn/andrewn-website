@@ -20,8 +20,7 @@
     "react-helmet": "^5.2.0",
     "react-router-config": "^1.0.0-beta.4",
     "react-router-dom": "^4.2.2",
-    "react-showdown": "^1.6.0",
-    "recompose": "^0.26.0"
+    "react-showdown": "https://github.com/modosc/react-showdown#block-level"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.44",
