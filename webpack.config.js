@@ -18,13 +18,16 @@ module.exports = async () => {
   const routes = await require("./lib/routes").paths();
 
   return {
-    entry: "./main.js",
+    entry: {
+      client: "./lib/client.js", // JS to run on the client
+      pages: "./main.js" // The statically rendered site
+    },
 
     target: "node",
     node: { __dirname: true },
 
     output: {
-      filename: "index.js",
+      filename: "assets/js/[name].js",
       path: config.outputRoot,
       /* IMPORTANT!
      * You must compile to UMD or CommonJS
