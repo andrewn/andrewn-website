@@ -2,6 +2,7 @@ const fs = require("fs");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const StaticSiteGeneratorPlugin = require("static-site-generator-webpack-plugin");
+const WebpackNotifierPlugin = require('webpack-notifier');
 const WebpackOnBuildPlugin = require("on-build-webpack");
 
 const config = require("./config");
@@ -58,6 +59,7 @@ module.exports = async () => {
         locals: {}
       }),
       new CopyWebpackPlugin([{ from: "static" }]),
+      new WebpackNotifierPlugin({ excludeWarnings: true, alwaysNotify: true }),
       new WebpackOnBuildPlugin(async stats => {
         console.log("done");
         (await renames()).map(({ from, to }) => fs.renameSync(from, to));
