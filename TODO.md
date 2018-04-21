@@ -12,8 +12,8 @@
 * [x] Fix CSS
 * [x] Output `page.html`, not `page/index.html`
 * [x] Fix all errors/warnings in output
-* [ ] Check all content and links
-* [ ] Include theme and other client-scripts
+* [x] Check all content and links
+* [x] Include theme and other client-scripts
 * [ ] Deploy
 * [ ] Generate Atom feed
 * [ ] Generate Site Map
