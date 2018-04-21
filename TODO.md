@@ -10,12 +10,15 @@
 * [x] Fix links not being links
 * [x] Embed random content like Gists/Codepens etc
 * [x] Fix CSS
+* [x] Output `page.html`, not `page/index.html`
+* [x] Fix all errors/warnings in output
+* [ ] Check all content and links
+* [ ] Include theme and other client-scripts
+* [ ] Deploy
 * [ ] Generate Atom feed
 * [ ] Generate Site Map
-* [ ] Fix all errors/warnings in output
+* [ ] Fix all content front matter for valid ISO Date
 * [ ] Fix Flow
-* [ ] Check all content
-* [ ] Deploy
 
 ### Future
 
