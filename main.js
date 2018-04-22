@@ -23,8 +23,7 @@ const fetchInitialProps = async matchingRoutes => {
 const page = (type, helmet, body) => {
   switch (type) {
     case "html":
-      return `
-<!doctype html>
+      return `<!doctype html>
 <html ${helmet.htmlAttributes.toString()}>
     <head>
         ${helmet.title.toString()}
@@ -41,8 +40,7 @@ const page = (type, helmet, body) => {
     </body>
 </html>`;
     case "xml":
-      return `
-      <?xml version="1.0" encoding="utf-8"?>
+      return `<?xml version="1.0" encoding="utf-8"?>
       ${body}
 `;
   }
