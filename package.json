@@ -4,7 +4,7 @@
   "description": "",
   "main": "lib/main.js",
   "scripts": {
-    "build": "npm run clean && time babel-node ./node_modules/.bin/webpack",
+    "build": "npm run clean && babel-node ./node_modules/.bin/webpack",
     "clean": "touch dist/x && rm -r dist/*",
     "deploy": "netlify deploy --path dist",
     "serve": "node ./server.js",

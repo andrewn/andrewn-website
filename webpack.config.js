@@ -67,8 +67,8 @@ module.exports = async () => {
       new CopyWebpackPlugin([{ from: "static" }]),
       new WebpackNotifierPlugin({ excludeWarnings: true, alwaysNotify: true }),
       new WebpackOnBuildPlugin(async stats => {
-        console.log("done");
         (await renames()).map(({ from, to }) => fs.renameSync(from, to));
+        console.log(`Done in ${(stats.endTime - stats.startTime) / 1000}s`);
       })
     ]
   };
