@@ -26,8 +26,7 @@
     "react-helmet": "^5.2.0",
     "react-router-config": "^1.0.0-beta.4",
     "react-router-dom": "^4.2.2",
-    "react-showdown":
-      "git+https://github.com/andrewn/react-showdown.git#block-level"
+    "react-showdown": "git+https://github.com/andrewn/react-showdown.git#block-level"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.44",
