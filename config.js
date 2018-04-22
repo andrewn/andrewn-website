@@ -6,7 +6,13 @@ export const root = __dirname;
 export const outputRoot = path.join(root, "dist");
 export const contentRoot = path.join(root, "content");
 export const staticRoot = path.join(root, "static");
+export const libRoot = path.join(root, "lib");
+
+export const configPath = path.join(root, "config.js");
+export const mainEntryPath = path.join(libRoot, "main.js");
+export const clientEntryPath = path.join(libRoot, "client.js");
 export const selectedProjectsPath = path.join(contentRoot, "selected.json");
+
 export const rootTags = {
   project: {
     url: "projects",

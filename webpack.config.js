@@ -2,7 +2,7 @@ const fs = require("fs");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const StaticSiteGeneratorPlugin = require("static-site-generator-webpack-plugin");
-const WebpackNotifierPlugin = require('webpack-notifier');
+const WebpackNotifierPlugin = require("webpack-notifier");
 const WebpackOnBuildPlugin = require("on-build-webpack");
 
 const config = require("./config");
@@ -20,12 +20,13 @@ module.exports = async () => {
 
   return {
     entry: {
-      client: "./lib/client.js", // JS to run on the client
-      pages: "./main.js" // The statically rendered site
+      client: config.clientEntryPath, // JS to run on the client
+      pages: config.mainEntryPath // The statically rendered site
     },
 
     target: "node",
     node: { __dirname: true },
+    stats: "minimal",
 
     output: {
       filename: "assets/js/[name].js",
@@ -38,12 +39,17 @@ module.exports = async () => {
 
     module: {
       rules: [
-        { test: /\.js$/, use: "babel-loader" },
+        {
+          test: /\.js$/,
+          include: [config.libRoot, config.configPath],
+          use: ["cache-loader", "babel-loader"]
+        },
         {
           test: /\.css$/,
           use: ExtractTextPlugin.extract({
             fallback: "style-loader",
             use: [
+              "cache-loader",
               { loader: "css-loader", options: { modules: true } },
               "postcss-loader"
             ]

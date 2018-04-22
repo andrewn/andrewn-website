@@ -15,7 +15,7 @@
 * [x] Check all content and links
 * [x] Include theme and other client-scripts
 * [x] Deploy
-* [ ] Generate Atom feed
+* [x] Generate Atom feed
 * [ ] Generate Site Map
 * [ ] Fix all content front matter for valid ISO Date
 * [ ] Fix Flow
