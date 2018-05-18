@@ -4,3 +4,9 @@
   margin-top: 2rem;
   margin-bottom: 1.25rem;
 }
+
+@media (min-width: 960px) {
+  .heading {
+    width: 75%;
+  }
+}
