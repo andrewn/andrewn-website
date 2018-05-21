@@ -1,13 +1,10 @@
 /* Figure */
 .figure {
-  width: auto;
-
   margin: 0;
   padding: 0;
 }
 
 .figure img {
-  max-height: 100%;
   max-width: 100%;
 }
 

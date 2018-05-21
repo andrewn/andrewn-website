@@ -100,8 +100,8 @@
 @media (min-width: 500px) {
   .markdownContent :global(figure),
   .markdownContent :global(.video) {
-    width: auto;
-    max-width: 50%;
+    /* width: min-content; */
+    /* max-width: 50%; */
   }
 
   .markdownContent :global(figure.is-aligned-right),
@@ -122,11 +122,16 @@
 
   .markdownContent :global(figure.is-aligned-right),
   .markdownContent :global(.video.is-aligned-right) {
-    max-width: 50%;
+    /* max-width: 50%; */
     float: right;
 
     margin-right: -16px;
     margin-left: 32px;
+  }
+
+  .markdownContent :global(figure.is-aligned-center),
+  .markdownContent :global(.video.is-aligned-center) {
+    max-width: 75%;
   }
 }
 
