@@ -1,9 +1,12 @@
 const fs = require("fs");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const StaticSiteGeneratorPlugin = require("static-site-generator-webpack-plugin");
 const WebpackNotifierPlugin = require("webpack-notifier");
 const WebpackOnBuildPlugin = require("on-build-webpack");
+
+const isProduction =
+  process.env.NODE_ENV === "development" ? "development" : "production";
 
 const config = require("./config");
 
@@ -24,6 +27,8 @@ module.exports = async () => {
       pages: config.mainEntryPath // The statically rendered site
     },
 
+    mode: isProduction ? "production" : "development",
+
     target: "node",
     node: { __dirname: true },
     stats: "minimal",
@@ -37,6 +42,19 @@ module.exports = async () => {
       libraryTarget: "umd"
     },
 
+    // optimization: {
+    //   splitChunks: {
+    //     cacheGroups: {
+    //       styles: {
+    //         name: "styles",
+    //         test: /\.css$/,
+    //         chunks: "all",
+    //         enforce: true
+    //       }
+    //     }
+    //   }
+    // },
+
     module: {
       rules: [
         {
@@ -46,20 +64,20 @@ module.exports = async () => {
         },
         {
           test: /\.css$/,
-          use: ExtractTextPlugin.extract({
-            fallback: "style-loader",
-            use: [
-              "cache-loader",
-              { loader: "css-loader", options: { modules: true } },
-              "postcss-loader"
-            ]
-          })
+          use: [
+            isProduction ? MiniCssExtractPlugin.loader : "style-loader",
+            "cache-loader",
+            { loader: "css-loader", options: { modules: true } },
+            "postcss-loader"
+          ]
         }
       ]
     },
 
     plugins: [
-      new ExtractTextPlugin("styles.css"),
+      new MiniCssExtractPlugin({
+        filename: "styles.css"
+      }),
       new StaticSiteGeneratorPlugin({
         paths: routes,
         locals: {}
