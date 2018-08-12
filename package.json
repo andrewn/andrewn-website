@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm run clean && babel-node ./node_modules/.bin/webpack",
     "clean": "touch dist/x && rm -r dist/*",
-    "deploy": "netlify deploy --path dist",
+    "deploy": "netlifyctl deploy",
     "images": "babel-node bin/images",
     "serve": "node ./server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -49,7 +49,6 @@
     "imagemagick": "^0.1.3",
     "lodash": "^4.17.10",
     "mini-css-extract-plugin": "^0.4.0",
-    "netlify-cli": "^1.2.0",
     "on-build-webpack": "^0.1.0",
     "postcss-loader": "^2.1.5",
     "static-site-generator-webpack-plugin": "github:medialaan/static-site-generator-webpack-plugin#58524c0",

@@ -1,7 +1,0 @@
-# Redirects from what the browser requests to what we serve
-/all              /projects
-/projects/all     /projects
-
-# Sunday shopping
-http://andrewnicolaou.co.uk/calendar/* https://andrewnicolaou.co.uk/calendar/:splat
-/calendar/* https://hook.io/andrewn/:splat 200

@@ -1,0 +1,24 @@
+[Settings]
+  ID = "c91abbc3-72db-4a20-910e-fd4a3bc61bd7"
+
+[build]
+  publish = "dist"
+
+# Redirects: Sunday shopping
+[[redirects]]
+  from = "http://andrewnicolaou.co.uk/calendar/*"
+  to = "https://andrewnicolaou.co.uk/calendar/:splat"
+
+[[redirects]]
+  from = "/calendar/*"
+  to = "https://hook.io/andrewn/:splat"
+  status = 200
+
+# Redirects: Projects
+[[redirects]]
+  from = "/all"
+  to = "/projects"
+
+[[redirects]]
+  from = "/projects/all"
+  to = "/projects"

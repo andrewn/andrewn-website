@@ -1,5 +1,6 @@
 dist
 node_modules
 static/*
+!static/_headers
 !static/_redirects
 .cache-loader
