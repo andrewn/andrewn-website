@@ -25,7 +25,7 @@
     "react-helmet": "^5.2.0",
     "react-router-config": "^1.0.0-beta.4",
     "react-router-dom": "^4.3.1",
-    "react-showdown": "git+https://github.com/andrewn/react-showdown.git#block-level",
+    "react-showdown": "^1.6.0",
     "webpack-command": "^0.2.1"
   },
   "devDependencies": {
