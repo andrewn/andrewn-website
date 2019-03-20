@@ -50,16 +50,14 @@
 :global section {
   font-size: 1em;
   /* equivalent to 16px */
-  line-height: 1.25;
-  /* equivalent to 20px */
+  line-height: 1.5;
 }
 
 @media (min-width: 43.75em) {
   :global section {
     font-size: 1em;
     /* equivalent to 16px */
-    line-height: 1.375;
-    /* equivalent to 22px */
+    line-height: 1.6;
   }
 }
 
