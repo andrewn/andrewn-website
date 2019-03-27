@@ -101,14 +101,16 @@
   order: -1;
 }
 
-@media (max-width: 550px) {
-  .cv :global .header {
-    flex-wrap: wrap;
-  }
+@media not print {
+  @media (max-width: 550px) {
+    .cv :global .header {
+      flex-wrap: wrap;
+    }
 
-  .cv :global .summary,
-  .cv :global .details {
-    width: auto;
+    .cv :global .summary,
+    .cv :global .details {
+      width: auto;
+    }
   }
 }
 
@@ -125,13 +127,15 @@
   left: 0;
 }
 
-@media (max-width: 550px) {
-  .cv :global .list-container {
-    display: block;
-  }
+@media not print {
+  @media (max-width: 550px) {
+    .cv :global .list-container {
+      display: block;
+    }
 
-  .cv :global .list-container > * {
-    width: auto;
+    .cv :global .list-container > * {
+      width: auto;
+    }
   }
 }
 
