@@ -4,7 +4,7 @@
   "description": "",
   "main": "lib/main.js",
   "scripts": {
-    "build": "npm run clean && babel-node ./node_modules/.bin/webpack",
+    "build": "npm run clean && babel-node ./node_modules/.bin/webpack-cli",
     "clean": "touch dist/x && rm -r dist/*",
     "deploy": "netlifyctl deploy",
     "images": "babel-node bin/images",
@@ -21,13 +21,14 @@
     "moment": "^2.22.2",
     "postcss-cssnext": "^3.1.0",
     "prismjs": "^1.14.0",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-helmet": "^5.2.0",
     "react-router-config": "^1.0.0-beta.4",
     "react-router-dom": "^4.3.1",
-    "react-showdown": "^1.6.0",
+    "react-showdown": "^2.1",
     "showdown-footnotes": "^2.1.2",
+    "webpack-cli": "^3.3.12",
     "webpack-command": "^0.2.1"
   },
   "devDependencies": {
