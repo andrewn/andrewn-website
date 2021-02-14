@@ -4,3 +4,6 @@ static/*
 !static/_headers
 !static/_redirects
 .cache-loader
+
+# Local Netlify folder
+.netlify
