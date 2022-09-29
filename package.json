@@ -15,7 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "d3-interpolate": "^1.2.0",
+    "d3-interpolate": "^3.0.1",
     "lost": "^8.2.1",
     "luxon": "^1.12.0",
     "moment": "^2.22.2",
